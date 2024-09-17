@@ -4,7 +4,22 @@
 	<artifactId>ceri-m1-techniques-de-test</artifactId>
 	<version>1</version>
 	<build>
-		<defaultGoal>test</defaultGoal>
+		<defaultGoal>clean</defaultGoal>
+		<plugins>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.4.0</version>
+        <executions>
+          <execution>
+            <id>auto-clean</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
 	</build>
 	
     <dependencies>
@@ -20,7 +35,7 @@
 	        <artifactId>mockito-all</artifactId>
 	        <version>1.8.4</version>
         	<scope>test</scope>
-    </dependency>
+    	</dependency>
         
     </dependencies>
 </project>
