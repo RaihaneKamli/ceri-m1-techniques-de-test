@@ -1,5 +1,5 @@
----
-version: 2
+version: 2.1
+
 jobs:
   build-and-test-master:
     docker:
@@ -12,12 +12,13 @@ jobs:
       - run:
           name: Test
           command: mvn test
+
 workflows:
   version: 2
   build-and-test-master:
     jobs:
       - build-and-test-master:
-        filters:
-          branches:
-            only:
-              - master
+          filters:
+            branches:
+              only:
+                - master
