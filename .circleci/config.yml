@@ -31,12 +31,13 @@ jobs:
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
-workflows:
-	version: 2
-	sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    jobs:
-    - build-and-test:
-    filters:
-    branches:
-    only:
-    - master
+	workflows:
+		version: 2
+		# This is the name of the workflow, feel free to change it to better match your workflow.
+			sample:
+				jobs:
+					build-and-test:
+						filters:
+							branches:
+								only:
+									- master
