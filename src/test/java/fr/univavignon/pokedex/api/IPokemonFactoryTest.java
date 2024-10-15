@@ -6,23 +6,22 @@ import static org.mockito.Mockito.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class IPokemonTrainerFactoryTest {
+public class IPokemonFactoryTest {
 
     private IPokemonTrainerFactory trainerFactory;  // Mock de la fabrique de dresseur
     private IPokedexFactory pokedexFactory;  // Mock de la fabrique de pokedex
-    private IPokedex pokedex;  // Mock du pokedex
 
     @Before
     public void setUp() {
-        // Création des mocks
+        // Création des mocks pour IPokemonTrainerFactory et IPokedexFactory
         trainerFactory = mock(IPokemonTrainerFactory.class);
         pokedexFactory = mock(IPokedexFactory.class);
-        pokedex = mock(IPokedex.class);
     }
 
     @Test
     public void testCreateTrainerValid() {
-        // Simuler la création d'un pokedex
+        // Simuler le comportement d'un pokedex pour le trainer
+        IPokedex pokedex = mock(IPokedex.class);
         when(pokedexFactory.createPokedex(any(), any())).thenReturn(pokedex);
 
         // Créer un objet PokemonTrainer
@@ -31,29 +30,29 @@ public class IPokemonTrainerFactoryTest {
         // Simuler la création du trainer
         when(trainerFactory.createTrainer("Ash", Team.VALOR, pokedexFactory)).thenReturn(ash);
 
-        // Vérifier la création du trainer
-        PokemonTrainer createdTrainer = trainerFactory.createTrainer("Ash", Team.VALOR, pokedexFactory);
-        assertNotNull(createdTrainer);
-        assertEquals("Ash", createdTrainer.getName());
-        assertEquals(Team.VALOR, createdTrainer.getTeam());
-        assertEquals(pokedex, createdTrainer.getPokedex());
+        // Vérification du comportement
+        PokemonTrainer trainer = trainerFactory.createTrainer("Ash", Team.VALOR, pokedexFactory);
+        assertNotNull(trainer);
+        assertEquals("Ash", trainer.getName());
+        assertEquals(Team.VALOR, trainer.getTeam());
+        assertEquals(pokedex, trainer.getPokedex());
     }
 
     @Test
     public void testCreateTrainerWithNullName() {
-        // Simuler la création avec un nom null, ce qui devrait lever une exception
+        // Test avec un nom null
         trainerFactory.createTrainer(null, Team.INSTINCT, pokedexFactory);
     }
 
     @Test
     public void testCreateTrainerWithNullTeam() {
-        // Simuler la création avec une équipe null, ce qui devrait lever une exception
+        // Test avec une équipe null
         trainerFactory.createTrainer("Brock", null, pokedexFactory);
     }
 
     @Test
     public void testCreateTrainerWithNullPokedexFactory() {
-        // Simuler la création avec un pokedexFactory null, ce qui devrait lever une exception
+        // Test avec un pokedexFactory null
         trainerFactory.createTrainer("Misty", Team.MYSTIC, null);
     }
 }
