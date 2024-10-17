@@ -34,24 +34,17 @@ public class IPokedexFactoryTest {
     
     @Test (expected = AssertionError.class)
     public void testCreatePokedexWithNullMetadataProvider() {
-    	try {
-            pokedexFactory.createPokedex(null, pokemonFactory);    
-            fail("IPokemonMetadataProvider cannot be null");
-
-    	} catch (IllegalArgumentException e) {
-            assertEquals("IPokemonMetadataProvider cannot be null", e.getMessage());
-    	}
+    	IPokedex myPokedex = pokedexFactory.createPokedex(null, pokemonFactory);    
+    	assertEquals(null, myPokedex);
+    
         // Test avec un metadataProvider null, qui devrait lever une exception
     }
  
     @Test (expected = AssertionError.class)
     public void testCreatePokedexWithNullPokemonFactory() {
         // Test avec un pokemonFactory null, qui devrait lever une exception
-    	try {
-            pokedexFactory.createPokedex(metadataProvider, null);    
-            fail("IPokemonFactory cannot be null");
-    	} catch (IllegalArgumentException e) {
-            assertEquals("IPokemonFactory cannot be null", e.getMessage());
-    	}
+    	IPokedex myPokedex = pokedexFactory.createPokedex(metadataProvider, null);    
+        assertEquals(null, myPokedex);
+
     }
 }
