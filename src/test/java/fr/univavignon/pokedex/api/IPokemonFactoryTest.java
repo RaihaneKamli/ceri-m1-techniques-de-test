@@ -41,18 +41,21 @@ public class IPokemonFactoryTest {
     @Test
     public void testCreateTrainerWithNullName() {
         // Test avec un nom null
-        trainerFactory.createTrainer(null, Team.INSTINCT, pokedexFactory);
+    	PokemonTrainer myTrainer = trainerFactory.createTrainer(null, Team.INSTINCT, pokedexFactory);
+        assertEquals(null,myTrainer);
     }
 
     @Test
     public void testCreateTrainerWithNullTeam() {
         // Test avec une équipe null
-        trainerFactory.createTrainer("Brock", null, pokedexFactory);
+    	PokemonTrainer myTrainer = trainerFactory.createTrainer("Brock", null, pokedexFactory);
+        assertEquals(null,myTrainer);
     }
 
     @Test
     public void testCreateTrainerWithNullPokedexFactory() {
         // Test avec un pokedexFactory null
-        trainerFactory.createTrainer("Misty", Team.MYSTIC, null);
+    	PokemonTrainer myTrainer= trainerFactory.createTrainer("Misty", Team.MYSTIC, null);
+        assertEquals(null,myTrainer);
     }
 }
