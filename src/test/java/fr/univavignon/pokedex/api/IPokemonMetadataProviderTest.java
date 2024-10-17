@@ -34,7 +34,7 @@ public class IPokemonMetadataProviderTest {
 	
 	public void testGetPokemonMetadaWrongIndex () throws PokedexException {
         PokemonMetadata bulbasaurMetadata = new PokemonMetadata(1, "Bulbasaur", 126, 126, 90);
-        when(metadataProvider.getPokemonMetadata(-1)).thenReturn(PokedexException.class);
+        when(metadataProvider.getPokemonMetadata(-1)).thenThrow(PokedexException.class);
 
 	}
 	
