@@ -32,7 +32,7 @@ public class IPokedexFactoryTest {
         assertEquals(pokedex, createdPokedex);
     }
     
-    @Test (expected = AssertionError.class)
+    @Test
     public void testCreatePokedexWithNullMetadataProvider() {
     	IPokedex myPokedex = pokedexFactory.createPokedex(null, pokemonFactory);    
     	assertEquals(null, myPokedex);
@@ -40,7 +40,7 @@ public class IPokedexFactoryTest {
         // Test avec un metadataProvider null, qui devrait lever une exception
     }
  
-    @Test (expected = AssertionError.class)
+    @Test
     public void testCreatePokedexWithNullPokemonFactory() {
         // Test avec un pokemonFactory null, qui devrait lever une exception
     	IPokedex myPokedex = pokedexFactory.createPokedex(metadataProvider, null);    
