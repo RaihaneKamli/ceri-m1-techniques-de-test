@@ -31,16 +31,18 @@ public class IPokedexFactoryTest {
         assertNotNull(createdPokedex);
         assertEquals(pokedex, createdPokedex);
     }
-
+    
     @Test
     public void testCreatePokedexWithNullMetadataProvider() {
         // Test avec un metadataProvider null, qui devrait lever une exception
-        pokedexFactory.createPokedex(null, pokemonFactory);
+        assertEquals(PokedexException,pokedexFactory.createPokedex(null, pokemonFactory));
     }
-
+ 
     @Test
     public void testCreatePokedexWithNullPokemonFactory() {
         // Test avec un pokemonFactory null, qui devrait lever une exception
-        pokedexFactory.createPokedex(metadataProvider, null);
+    	IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            pokedexFactory.createPokedex(metadataProvider, null);    		
+    	});
     }
 }
