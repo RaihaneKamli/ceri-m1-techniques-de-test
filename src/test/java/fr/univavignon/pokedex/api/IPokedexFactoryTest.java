@@ -30,12 +30,14 @@ public class IPokedexFactoryTest {
         IPokedex createdPokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
         assertNotNull(createdPokedex);
         assertEquals(pokedex, createdPokedex);
+        verify(pokedexFactory).createPokedex(metadataProvider, pokemonFactory);
+
     }
     
     @Test
     public void testCreatePokedexWithNullMetadataProvider() {
     	IPokedex myPokedex = pokedexFactory.createPokedex(null, pokemonFactory);    
-    	assertEquals(null, myPokedex);
+        assertNull(myPokedex);
         // Test avec un metadataProvider null, qui devrait lever une exception
     }
  
@@ -43,6 +45,6 @@ public class IPokedexFactoryTest {
     public void testCreatePokedexWithNullPokemonFactory() {
         // Test avec un pokemonFactory null, qui devrait lever une exception
     	IPokedex myPokedex = pokedexFactory.createPokedex(metadataProvider, null);    
-        assertEquals(null, myPokedex);
+        assertNull(myPokedex);
     }
 }

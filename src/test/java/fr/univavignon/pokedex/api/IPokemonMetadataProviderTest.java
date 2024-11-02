@@ -30,10 +30,13 @@ public class IPokemonMetadataProviderTest {
         assertEquals(126, metadata.getAttack());
         assertEquals(126, metadata.getDefense());
         assertEquals(90, metadata.getStamina());
+        verify(metadataProvider).getPokemonMetadata(1);
+
     }
 	
 	@Test
 	public void testGetPokemonMetadataWrongIndex() throws PokedexException {
+
 	    // Simuler une réponse pour un index valide (par exemple, Bulbasaur)
 	    when(metadataProvider.getPokemonMetadata(anyInt())).thenAnswer(invocation -> {
 	        int index = invocation.getArgument(0);
@@ -67,6 +70,8 @@ public class IPokemonMetadataProviderTest {
 	    assertNotNull(metadata);
 	    assertEquals(1, metadata.getIndex());
 	    assertEquals("ValidPokemon", metadata.getName());
+        verify(metadataProvider).getPokemonMetadata(1);
+
 	}
 
 	

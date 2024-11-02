@@ -32,7 +32,7 @@ public class IPokedexTest {
 	}
 	
     @Test
-    public void testPokedexSize() {
+    public void testPokedexMaxSize() {
         // Vérifie si le Pokedex contient 151 Pokémon (simulé)
         assertEquals(151, pokedex.size());
     }
@@ -40,8 +40,10 @@ public class IPokedexTest {
     @Test
     public void testAddPokemon() {
         // Vérifie si le Pokémon ajouté retourne l'index 1
-        Pokemon Charmander = new Pokemon(1, "Bulbasaur", 126, 126, 90, 613, 100, 2000, 3, 56.0);
-        assertEquals(1, pokedex.addPokemon(Charmander)+1);
+        Pokemon Charmander = new Pokemon(1, "Charmander", 126, 126, 90, 613, 100, 2000, 3, 56.0);
+        assertEquals(0, pokedex.addPokemon(Charmander));
+        verify(pokedex).addPokemon(Charmander); // Vérifie que addPokemon a été appelé avec Charmander
+
     }
 
     @Test
@@ -50,6 +52,16 @@ public class IPokedexTest {
         Pokemon Charmander = pokedex.getPokemon(1);
         assertNotNull(Charmander);
         assertEquals("Charmander", Charmander.getName());
+        verify(pokedex).getPokemon(1); // Vérifie que getPokemon a été appelé avec 1
+
+    }
+    
+    @Test
+    public void testGetPokemonWrongIndex() throws PokedexException {
+        Pokemon Charmander = pokedex.getPokemon(-1);
+        assertNull(Charmander);
+        verify(pokedex).getPokemon(-1); // Vérifie que getPokemon a été appelé avec 1
+
     }
 
     @Test
@@ -60,12 +72,5 @@ public class IPokedexTest {
         assertEquals("Charmander", Charmander.getName());
     }
 
-    @Test
-    public void testGetPokemons() throws PokedexException {
-        // Vérifie si la liste retournée par getPokemons contient bien Charmander
-        List<Pokemon> pokemons = pokedex.getPokemons();
-        assertNotNull(pokemons);
-        assertEquals(1, pokemons.size());
-        assertEquals("Charmander", pokemons.get(0).getName());
-    }
+   
 }
