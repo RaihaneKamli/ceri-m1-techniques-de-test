@@ -14,8 +14,9 @@ jobs:
           name: Build
           command: mvn -B -DskipTests clean package
       - run:
-          name: Test
-          command: mvn test
+          - name: Test
+          - command: mvn test
+          - codecov/upload
 
 workflows:
   version: 2
@@ -26,7 +27,5 @@ workflows:
             branches:
               only:
                 - master
-  maven_test:
-    jobs:
       - build
       - test
