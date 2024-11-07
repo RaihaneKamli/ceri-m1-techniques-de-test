@@ -1,9 +1,15 @@
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@5.0.1
+  maven: circleci/maven@1.4.1
+
 jobs:
   build-and-test-master:
-    docker:
-      - image: cimg/openjdk:11.0
+    executor:
+      name: Executor
+      docker:
+        - image: cimg/openjdk:11.0
     steps:
       - checkout
       - run:
@@ -12,6 +18,11 @@ jobs:
       - run:
           name: Test
           command: mvn test
+            - codecov/upload
+      - run:
+          name: Clean
+          command: mvn clean install
+            - codecov/upload
 
 workflows:
   version: 2
@@ -22,11 +33,9 @@ workflows:
             branches:
               only:
                 - master
-
-orbs:
-  codecov: codecov/codecov@5.0.1
-  workflows:
-    upload-to-codecov:
-      jobs:
-        - checkout
-        - codecov/upload
+  upload-to-codecov:
+    jobs:
+      - checkout
+      - codecov/upload
+      - build
+      - test
