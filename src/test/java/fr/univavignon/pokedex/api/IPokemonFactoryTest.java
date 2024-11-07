@@ -56,8 +56,11 @@ public class IPokemonFactoryTest {
         assertTrue(createdAquali.getCandy() > 0);  
         
         assertTrue(createdBulbasaur.getDust() > 0);  
-        assertTrue(createdAquali.getDust() > 0);  
-    	
+        assertTrue(createdAquali.getDust() > 0);
+
+        assertTrue(createdBulbasaur.getIv() > 0);
+        assertTrue(createdAquali.getIv() > 0);
+
         verify(pokemonfact).createPokemon(0, 613, 64, 4000, 4); // Vérifie l'appel pour Bulbasaur
         verify(pokemonfact).createPokemon(133, 2729, 202, 5000, 4); // Vérifie l'appel pour Aquali    }
     
