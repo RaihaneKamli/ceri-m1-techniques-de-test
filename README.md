@@ -7,6 +7,7 @@ Kamli Raïhane
 Team : Intuition
 
 Badges :
+
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/RaihaneKamli/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/RaihaneKamli/ceri-m1-techniques-de-test/tree/master)
 
 [![codecov](https://codecov.io/github/RaihaneKamli/ceri-m1-techniques-de-test/graph/badge.svg?token=Y6XIHU45IF)](https://codecov.io/github/RaihaneKamli/ceri-m1-techniques-de-test)
