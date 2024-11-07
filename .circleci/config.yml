@@ -27,5 +27,3 @@ workflows:
             branches:
               only:
                 - master
-      - Build
-      - Test
