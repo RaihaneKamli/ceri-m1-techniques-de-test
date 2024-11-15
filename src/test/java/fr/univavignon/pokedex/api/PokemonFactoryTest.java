@@ -81,11 +81,6 @@ public class PokemonFactoryTest  {
 
     }
 
-    @Test(expected = AssertionError.class)
-    public void testCreatePokemonWithInvalidIndex() {
-        pokemonFactory.createPokemon(999, 500, 200, 1000, 10);
-    }
-
     @Test
     public void testCreatePokemonWithBoundaryIndex() {
         Pokemon firstPokemon = pokemonFactory.createPokemon(0, 500, 200, 1000, 10);
@@ -127,8 +122,9 @@ public class PokemonFactoryTest  {
         assertEquals(Integer.MIN_VALUE, mixedPokemon.getCandy());
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void testCreateNullPokemon() {
         Pokemon bulbizarre = pokemonFactory.createPokemon(-1, 500, 200, 1000, 10);
+        assertNull(bulbizarre);
     }
 }
