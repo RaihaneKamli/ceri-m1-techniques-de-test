@@ -38,7 +38,7 @@ public class Pokedex implements IPokedex {
                 return pokemon;  // Retourne le Pokémon trouvé
             }
         }
-        return null;  // Si aucun Pokémon avec cet index n'est trouvé
+        throw new PokedexException("No Pokémon found with index: " + id); // Lance une exception si non trouvé
     }
 
     @Override
