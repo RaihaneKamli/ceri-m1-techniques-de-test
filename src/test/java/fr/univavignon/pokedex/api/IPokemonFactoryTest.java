@@ -81,12 +81,10 @@ public class IPokemonFactoryTest {
         
         
     @Test
-    public void testCreatePokemonWithMock() {
+    public void testCreateMaxValuePokemonWithMock() {
         // Configuration du mock pour retourner un objet Pokemon spécifique
         when(pokemonfact.createPokemon(Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE))
             .thenReturn(Mew);
-
-        // Appel de la méthode createPokemon
 
         // Vérifications
         assertNotNull(Mew); // Vérifie que le retour n'est pas null
@@ -98,7 +96,4 @@ public class IPokemonFactoryTest {
         assertEquals(Integer.MAX_VALUE, Mew.getDust());
         
     }
-    
-    
-
 }

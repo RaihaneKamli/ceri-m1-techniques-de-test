@@ -4,6 +4,10 @@ import implementation.PokedexFactory;
 import implementation.PokemonFactory;
 import implementation.PokemonMetadataProvider;
 import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class PokedexFactoryTest {
 
@@ -18,31 +22,26 @@ public class PokedexFactoryTest {
         pokemonFactory = new PokemonFactory(); // Une classe concrète
     }
 
-   /* @Test
-    public void testCreatePokedexValid() {
-        // Simuler la création d'un Pokedex
-        IPokedex pokedex = mock(IPokedex.class);
-        when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(pokedex);
+    @Test
+    public void testCreatePokedex() {
+        // Créer un Pokedex
+        IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
 
-        // Vérification de la création du Pokedex
-        IPokedex createdPokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
-        assertNotNull(createdPokedex);
-        assertEquals(pokedex, createdPokedex);
-        verify(pokedexFactory).createPokedex(metadataProvider, pokemonFactory);
-
+        // Vérifier que nous n'avons pas null
+        assertNotNull(pokedex);
     }
 
     @Test
     public void testCreatePokedexWithNullMetadataProvider() {
-        IPokedex myPokedex = pokedexFactory.createPokedex(null, pokemonFactory);
-        assertNull(myPokedex);
+        IPokedex pokedex = pokedexFactory.createPokedex(null, pokemonFactory);
+        assertNull(pokedex);
         // Test avec un metadataProvider null, qui devrait lever une exception
     }
 
     @Test
     public void testCreatePokedexWithNullPokemonFactory() {
         // Test avec un pokemonFactory null, qui devrait lever une exception
-        IPokedex myPokedex = pokedexFactory.createPokedex(metadataProvider, null);
-        assertNull(myPokedex);
-    }*/
+        IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, null);
+        assertNull(pokedex);
+    }
 }
