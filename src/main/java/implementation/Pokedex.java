@@ -7,8 +7,12 @@ import java.util.List;
 
 public class Pokedex implements IPokedex {
 
-    public Pokedex (IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {
+    public IPokemonMetadataProvider pokemeta;
+    public IPokemonFactory pokefact;
 
+    public Pokedex (IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {
+        pokemeta = metadataProvider;
+        pokefact = pokemonFactory;
     }
 
     @Override
