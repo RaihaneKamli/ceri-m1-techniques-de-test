@@ -40,7 +40,7 @@ public class PokedexTest {
     }
 
 
-    @Test
+    @Test(expected = PokedexException.class)
     public void testGetPokemon() throws PokedexException {
         IPokedex pokedex = new Pokedex( metadataProvider, pokemonFactory);
 
