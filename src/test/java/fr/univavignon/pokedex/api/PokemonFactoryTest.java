@@ -82,4 +82,51 @@ public class PokemonFactoryTest  {
 
     }
 
+    @Test(expected = AssertionError.class)
+    public void testCreatePokemonWithInvalidIndex() {
+        pokemonFactory.createPokemon(999, 500, 200, 1000, 10);
+    }
+
+    @Test
+    public void testCreatePokemonWithBoundaryIndex() {
+        Pokemon firstPokemon = pokemonFactory.createPokemon(0, 500, 200, 1000, 10);
+        assertNotNull(firstPokemon);
+        assertEquals("Bulbizarre", firstPokemon.getName());
+
+        Pokemon lastPokemon = pokemonFactory.createPokemon(133, 1500, 400, 2000, 20);
+        assertNotNull(lastPokemon);
+        assertEquals("Aquali", lastPokemon.getName());
+    }
+
+    @Test
+    public void testIVCalculation() {
+        Pokemon pokemon = pokemonFactory.createPokemon(0, 500, 200, 1000, 10);
+
+        double expectedIV = ((126 + 126 + 90) / 45.0) * 100;
+        assertEquals(expectedIV, pokemon.getIv(), 0.01);
+    }
+
+    @Test
+    public void testPokemonMetadataIntegrity() {
+        Pokemon bulbizarre = pokemonFactory.createPokemon(0, 500, 200, 1000, 10);
+        assertEquals("Bulbizarre", bulbizarre.getName());
+        assertEquals(126, bulbizarre.getAttack());
+        assertEquals(126, bulbizarre.getDefense());
+        assertEquals(90, bulbizarre.getStamina());
+    }
+
+
+    @Test
+    public void testCreatePokemonWithMixedValues() {
+        Pokemon mixedPokemon = pokemonFactory.createPokemon(0, Integer.MAX_VALUE, -50, 0, Integer.MIN_VALUE);
+
+        assertNotNull(mixedPokemon);
+        assertEquals("Bulbizarre", mixedPokemon.getName());
+        assertEquals(Integer.MAX_VALUE, mixedPokemon.getCp());
+        assertEquals(-50, mixedPokemon.getHp());
+        assertEquals(0, mixedPokemon.getDust());
+        assertEquals(Integer.MIN_VALUE, mixedPokemon.getCandy());
+    }
+
+
 }

@@ -16,7 +16,7 @@ public class PokedexTest {
 
     @Before
     public void setUp() {
-        // Création des mocks
+
     }
 
     @Test
