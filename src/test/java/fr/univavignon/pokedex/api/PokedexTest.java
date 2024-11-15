@@ -112,6 +112,13 @@ public class PokedexTest {
         assertEquals(4, createdPokemon.getCandy());
     }
 
+    @Test
+    public void testNull() throws PokedexException {
+        IPokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
+
+       assertNull(pokedex.getPokemonMetadata(-10));
+    }
+
 
 
 }
