@@ -4,8 +4,7 @@ import implementation.PokemonFactory;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class PokemonFactoryTest  {
 
@@ -128,5 +127,8 @@ public class PokemonFactoryTest  {
         assertEquals(Integer.MIN_VALUE, mixedPokemon.getCandy());
     }
 
-
+    @Test(expected = AssertionError.class)
+    public void testCreateNullPokemon() {
+        Pokemon bulbizarre = pokemonFactory.createPokemon(-1, 500, 200, 1000, 10);
+    }
 }

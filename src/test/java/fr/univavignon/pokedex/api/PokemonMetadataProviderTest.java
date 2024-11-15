@@ -18,13 +18,13 @@ public class PokemonMetadataProviderTest {
 
     @Test
     public void testGetPokemonMetadataInvalidIndex() throws PokedexException {
-        assertNull(provider.getPokemonMetadata(999)); // Doit lever une PokedexException
+        assertNull(provider.getPokemonMetadata(999));
     }
 
 
     @Test
     public void testGetPokemonMetadataNegativeIndex() throws PokedexException {
-        assertNull(provider.getPokemonMetadata(-1)); // Doit lever une PokedexException
+        assertNull(provider.getPokemonMetadata(-1));
     }
 
     @Test
