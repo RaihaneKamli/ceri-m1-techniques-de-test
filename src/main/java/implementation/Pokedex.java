@@ -1,14 +1,16 @@
 package implementation;
 
-import fr.univavignon.pokedex.api.IPokedex;
-import fr.univavignon.pokedex.api.PokedexException;
-import fr.univavignon.pokedex.api.Pokemon;
-import fr.univavignon.pokedex.api.PokemonMetadata;
+import fr.univavignon.pokedex.api.*;
 
 import java.util.Comparator;
 import java.util.List;
 
 public class Pokedex implements IPokedex {
+
+    public Pokedex (IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {
+
+    }
+
     @Override
     public int size() {
         return pokedex.size();
@@ -42,10 +44,10 @@ public class Pokedex implements IPokedex {
         return List.copyOf(pokedex);  // Liste copiée et non modifiable
     }
 
-
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
-        return  null;
+        PokemonFactory pokefact = new PokemonFactory();
+        return pokefact.createPokemon(index,cp,hp,dust,candy);
     }
 
     @Override
