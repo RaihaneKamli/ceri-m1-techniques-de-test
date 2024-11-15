@@ -1,6 +1,5 @@
 package fr.univavignon.pokedex.api;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -11,8 +10,6 @@ import java.util.List;
  * @author fv
  */
 public interface IPokedex extends IPokemonMetadataProvider, IPokemonFactory {
-
-	List<Pokemon> pokedex = new ArrayList<>();
 
 	/**
 	 * Returns the number of pokemon this pokedex contains.
