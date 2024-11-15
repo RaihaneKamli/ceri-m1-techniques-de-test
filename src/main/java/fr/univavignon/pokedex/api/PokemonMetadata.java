@@ -1,5 +1,7 @@
 package fr.univavignon.pokedex.api;
 
+import java.util.List;
+
 /**
  * Pokemon metadata POJO.
  * 
@@ -21,6 +23,19 @@ public class PokemonMetadata {
 
 	/** Pokemon stamina level. **/
 	private final int stamina;
+
+	/** Static list containing predefined PokemonMetadata instances. **/
+	private static final List<PokemonMetadata> POKEMON_METADATA_LIST;
+
+	static {
+		// Initialisation des données statiques
+        // Aquali
+        POKEMON_METADATA_LIST = List.of(
+				new PokemonMetadata(0, "Bulbizarre", 126, 126, 90), // Bulbizarre
+                new PokemonMetadata(133, "Aquali", 186, 168, 260)
+		);    // Liste immuable
+	}
+
 
 	/**
 	 * Default constructor.
@@ -63,5 +78,21 @@ public class PokemonMetadata {
 	public int getStamina() {
 		return stamina;
 	}
+
+	/**
+	 * Retrieves a PokemonMetadata instance by its index.
+	 *
+	 * @param index The index of the desired Pokemon.
+	 * @return The corresponding PokemonMetadata, or null if not found.
+	 */
+	public static PokemonMetadata getPokemonMetadataByIndex(int index) {
+		for (PokemonMetadata metadata : POKEMON_METADATA_LIST) {
+			if (metadata.getIndex() == index) {
+				return metadata;
+			}
+		}
+		return null; // Retourne null si aucun Pokémon ne correspond à l'index
+	}
+
 
 }
