@@ -3,11 +3,12 @@ package implementation;
 import fr.univavignon.pokedex.api.IPokedex;
 import fr.univavignon.pokedex.api.PokedexException;
 import fr.univavignon.pokedex.api.Pokemon;
+import fr.univavignon.pokedex.api.PokemonMetadata;
 
 import java.util.Comparator;
 import java.util.List;
 
-public abstract class Pokedex implements IPokedex {
+public class Pokedex implements IPokedex {
     @Override
     public int size() {
         return pokedex.size();
@@ -42,4 +43,13 @@ public abstract class Pokedex implements IPokedex {
     }
 
 
+    @Override
+    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+        return  null;
+    }
+
+    @Override
+    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+        return PokemonMetadata.getPokemonMetadataByIndex(index);
+    }
 }
