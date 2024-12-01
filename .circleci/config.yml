@@ -17,9 +17,15 @@ jobs:
           name: Test
           command: mvn test
       - codecov/upload
+      - run:
+          name: Run Checkstyle
+          command: mvn -f .circleci/checkstyle.yml checkstyle:check
 
 workflows:
   version: 2
+  checkstyle:
+    jobs:
+      - checkstyle
   build-and-test-master:
     jobs:
       - build-and-test-master:
