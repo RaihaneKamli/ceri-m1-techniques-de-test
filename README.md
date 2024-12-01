@@ -12,6 +12,10 @@ Badges :
 
 [![codecov](https://codecov.io/github/RaihaneKamli/ceri-m1-techniques-de-test/graph/badge.svg?token=Y6XIHU45IF)](https://codecov.io/github/RaihaneKamli/ceri-m1-techniques-de-test)
 
+![Checkstyle](https://img.shields.io/github/workflow/status/your-username/your-repository/checkstyle)
+
+![Checkstyle](https://img.shields.io/badge/Checkstyle-Passed-brightgreen)
+
 
 
 ## Introduction
