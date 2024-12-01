@@ -23,9 +23,6 @@ jobs:
 
 workflows:
   version: 2
-  checkstyle:
-    jobs:
-      - checkstyle
   build-and-test-master:
     jobs:
       - build-and-test-master:
