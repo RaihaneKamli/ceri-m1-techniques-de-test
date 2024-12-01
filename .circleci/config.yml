@@ -19,7 +19,7 @@ jobs:
       - codecov/upload
       - run:
           name: Run Checkstyle
-          command: mvn -f .circleci/checkstyle.yml checkstyle:check
+          command: mvn -f checkstyle.xml checkstyle:check
 
 workflows:
   version: 2
