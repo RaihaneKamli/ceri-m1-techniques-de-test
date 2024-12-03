@@ -14,8 +14,6 @@ Badges :
 
 ![Checkstyle](docs/badges/checkstyle-result.svg)
 
-![Checkstyle](docs/badges/checkstyle-result.svg)
-
 
 
 ## Introduction
