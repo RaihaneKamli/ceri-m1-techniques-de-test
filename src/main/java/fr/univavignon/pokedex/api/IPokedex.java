@@ -4,7 +4,8 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * IPokedex interface. An IPokedex aims to store all information about captured pokemon, as their
+ * IPokedex interface. An IPokedex aims to store all
+ * information about captured pokemon, as their
  * default metadata as well.
  *
  * @author fv
@@ -19,7 +20,8 @@ public interface IPokedex extends IPokemonMetadataProvider, IPokemonFactory {
   int size();
 
   /**
-   * Adds the given <tt>pokemon</tt> to this pokedex and returns it unique index.
+   * Adds the given <tt>pokemon</tt>
+   * to this pokedex and returns it unique index.
    *
    * @param pokemon Pokemon to add to this pokedex.
    * @return Index of this pokemon relative to this pokedex.
@@ -43,7 +45,8 @@ public interface IPokedex extends IPokemonMetadataProvider, IPokemonFactory {
   List<Pokemon> getPokemons();
 
   /**
-   * Returns an unmodifiable list of all pokemons this pokedex contains. The list view will be
+   * Returns an unmodifiable list of all pokemons this pokedex contains.
+   * The list view will be
    * sorted using the given <tt>order</tt>.
    *
    * @param order Comparator instance used for sorting the created view.
