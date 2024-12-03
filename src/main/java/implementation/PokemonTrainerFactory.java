@@ -1,5 +1,6 @@
 package implementation;
 
+
 import fr.univavignon.pokedex.api.*;
 
 public class PokemonTrainerFactory implements IPokemonTrainerFactory {
