@@ -13,11 +13,21 @@ import java.util.List;
 
 public class Pokedex implements IPokedex {
 
+  /*
+  * IPokemonMetadataProvider instance
+  * */
   public IPokemonMetadataProvider pokemeta;
+
+  /*
+   * IPokemonFactory instance
+   * */
   public IPokemonFactory pokefact;
 
   List<Pokemon> pokedex = new ArrayList<>();
 
+  /*
+   * Constructeur de la classe Pokemon
+   * */
   public Pokedex(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {
     pokemeta = metadataProvider;
     pokefact = pokemonFactory;
