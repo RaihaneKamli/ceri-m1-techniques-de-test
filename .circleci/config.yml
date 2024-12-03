@@ -19,7 +19,7 @@ jobs:
       - codecov/upload
       - run:
           name: Build and generate Javadoc
-          command: mvn -B javadoc::javadoc,
+          command: mvn -B javadoc::javadoc
       - run:
           name: Run Checkstyle
           command: mvn checkstyle:check
