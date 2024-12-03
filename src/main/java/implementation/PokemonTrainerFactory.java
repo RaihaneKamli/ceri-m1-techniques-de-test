@@ -1,7 +1,14 @@
 package implementation;
 
 
-import fr.univavignon.pokedex.api.*;
+import fr.univavignon.pokedex.api.IPokedexFactory;
+import fr.univavignon.pokedex.api.IPokemonTrainerFactory;
+import fr.univavignon.pokedex.api.PokemonTrainer;
+import fr.univavignon.pokedex.api.Team;
+import fr.univavignon.pokedex.api.IPokemonFactory;
+import fr.univavignon.pokedex.api.IPokemonMetadataProvider;
+import fr.univavignon.pokedex.api.IPokedex;
+
 
 public class PokemonTrainerFactory implements IPokemonTrainerFactory {
   @Override
