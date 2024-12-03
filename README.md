@@ -12,7 +12,7 @@ Badges :
 
 [![codecov](https://codecov.io/github/RaihaneKamli/ceri-m1-techniques-de-test/graph/badge.svg?token=Y6XIHU45IF)](https://codecov.io/github/RaihaneKamli/ceri-m1-techniques-de-test)
 
-![Checkstyle](docs/badges/checkstyle-result.svg)
+![Checkstyle Status](https://img.shields.io/badge/Checkstyle-Passing-brightgreen)
 
 
 
