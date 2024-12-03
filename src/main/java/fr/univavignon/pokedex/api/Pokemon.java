@@ -30,11 +30,11 @@ public final class Pokemon extends PokemonMetadata {
    * @param attack Attack level.
    * @param defense Defense level.
    * @param stamina Stamina level.
-   * @param cp Pokemon cp.
-   * @param hp Pokemon hp.
-   * @param dust Required dust for upgrading this pokemon.
-   * @param candy Required candy for upgrading this pokemon.
-   * @param iv IV perfection percentage.
+   * @param initCp Pokemon cp.
+   * @param initHpp Pokemon hp.
+   * @param initDust Required dust for upgrading this pokemon.
+   * @param initCandy Required candy for upgrading this pokemon.
+   * @param initIv IV perfection percentage.
    */
   public Pokemon(
       final int index,
@@ -42,40 +42,60 @@ public final class Pokemon extends PokemonMetadata {
       final int attack,
       final int defense,
       final int stamina,
-      final int cp,
-      final int hp,
-      final int dust,
-      final int candy,
-      final double iv) {
+      final int initCp,
+      final int initHpp,
+      final int initDust,
+      final int initCandy,
+      final double initIv) {
     super(index, name, attack, defense, stamina);
-    this.cp = cp;
-    this.hp = hp;
-    this.dust = dust;
-    this.candy = candy;
-    this.iv = iv;
+    this.cp = initCp;
+    this.hp = initHpp;
+    this.dust = initDust;
+    this.candy = initCandy;
+    this.iv = initIv;
   }
 
-  /** Combat Point getter getter. * */
+  /**
+   * Retrieves the points of the Pokémon.
+   *
+   * @return the points of the Pokémon
+   */
   public int getCp() {
     return cp;
   }
 
-  /** HP getter. * */
+  /**
+   * Retrieves the hp of the Pokémon.
+   *
+   * @return the hp of the Pokémon
+   */
   public int getHp() {
     return hp;
   }
 
-  /** Dust getter. * */
+  /**
+   * Retrieves the dust of the Pokémon.
+   *
+   * @return the dust of the Pokémon
+   */
   public int getDust() {
     return dust;
   }
 
-  /** Candy getter. * */
+  /**
+   * Retrieves the candy of the Pokémon.
+   *
+   * @return the candy of the Pokémon
+   */
   public int getCandy() {
     return candy;
   }
 
-  /** IV getter. * */
+  /**
+   * Retrieves the iv of the Pokémon.
+   *
+   * @return the iv of the Pokémon
+   */
   public double getIv() {
     return iv;
   }
