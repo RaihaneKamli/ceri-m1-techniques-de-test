@@ -16,6 +16,8 @@ Badges :
 
 ![Checkstyle](https://img.shields.io/badge/Checkstyle-Passed-brightgreen)
 
+![Checkstyle](docs/badges/checkstyle-result.svg)
+
 
 
 ## Introduction
