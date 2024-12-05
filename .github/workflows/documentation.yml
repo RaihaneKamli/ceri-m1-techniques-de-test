@@ -2,7 +2,7 @@ name: Java Documentation Generation
 
 on:
   pull_request:
-    branches: [ gh-pages ]
+    branches: [ master ]
     types: [ closed ]
 
 jobs:
