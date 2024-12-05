@@ -3,7 +3,7 @@ name: Java Documentation Generation
 on:
   push:
     branches:
-      - master  # ou main
+      - master
 
 jobs:
   generate-docs:
