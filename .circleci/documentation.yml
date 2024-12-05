@@ -1,12 +1,12 @@
 name: Java Documentation Generation
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
     branches: [ master ]
     types: [ closed ]
-  push:
-    branches:
-      - '*'
 
 jobs:
   generate-docs:
