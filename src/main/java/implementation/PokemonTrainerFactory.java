@@ -10,6 +10,9 @@ import fr.univavignon.pokedex.api.IPokemonMetadataProvider;
 import fr.univavignon.pokedex.api.IPokedex;
 
 
+/**
+ * Classe PokemonTrainerFactory qui implémente IPokemonTrainerFactory
+ */
 public class PokemonTrainerFactory implements IPokemonTrainerFactory {
 
   /**
