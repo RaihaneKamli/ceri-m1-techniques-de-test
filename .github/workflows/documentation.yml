@@ -1,15 +1,13 @@
 name: Java Documentation Generation
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     types: [ closed ]
-    
+
 jobs:
   generate-docs:
+    if: github.event.pull_request.merged == true
     name: Generate Java Documentation and Deploy
     runs-on: ubuntu-latest
 
@@ -30,4 +28,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.DOC_TOKEN }}
-          publish_dir: ./target/site/apidocs
+          publish_dir: ./target/reports/apidocs
