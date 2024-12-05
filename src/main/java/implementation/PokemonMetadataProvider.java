@@ -7,6 +7,9 @@ import fr.univavignon.pokedex.api.PokedexException;
 import fr.univavignon.pokedex.api.PokemonMetadata;
 
 
+/**
+ * Class PokemonMetadataProvider qui implémente IPokemonMetadataProvider
+ */
 public class PokemonMetadataProvider implements IPokemonMetadataProvider {
 
   /**
