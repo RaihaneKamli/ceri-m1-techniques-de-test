@@ -27,7 +27,7 @@
 				<executions>
 					<execution>
 						<goals>
-							<goal>apply</goal> <!-- Formatte automatiquement -->
+							<goal>apply</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -37,7 +37,6 @@
 					</java>
 				</configuration>
 			</plugin>
-
 
 			<plugin>
 				<groupId>org.jacoco</groupId>
@@ -94,6 +93,20 @@
 					<configLocation>checkstyle.xml</configLocation>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.1.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>javadoc</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 	    </plugins>
 	</build>
 
