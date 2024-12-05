@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - master
-
+  pull_request:
+    branches: [ master ]
+    types: [ closed ]
+    
 jobs:
   generate-docs:
     name: Generate Java Documentation and Deploy
