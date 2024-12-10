@@ -20,12 +20,6 @@ jobs:
       - run:
           name: Build and generate Javadoc
           command: mvn -B javadoc::javadoc
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.DOC_TOKEN }}
-          publish_dir: ./target/reports/apidocs
       - run:
           name: Run Checkstyle
           command: mvn checkstyle:check
