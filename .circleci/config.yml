@@ -31,5 +31,5 @@ workflows:
       - build-and-test-master:
           filters:
             branches:
-              only:
-                - master
+              ignore:
+                - gh-pages
