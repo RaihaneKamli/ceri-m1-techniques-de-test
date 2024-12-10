@@ -1,39 +1,31 @@
-version: 2.1
-orbs:
-  maven: circleci/maven@1.4.1
-  codecov: codecov/codecov@4.0.1
+name: Java Documentation Generation
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [ closed ]
+
 jobs:
-  build-and-test-master:
-    docker:
-      - image: cimg/openjdk:11.0
+  generate-docs:
+    if: github.event.pull_request.merged == true
+    name: Generate Java Documentation and Deploy
+    runs-on: ubuntu-latest
+
     steps:
-      - checkout
-      - run:
-          name: Build
-          command: |
-            if [[ "$CIRCLE_BRANCH" == "gh-pages" ]]; then
-              echo "Skipping build on gh-pages branch.";
-              exit 0;
-            fi
-            mvn -B -DskipTests clean package
-      - run:
-          name: Test
-          command: mvn test
-      - codecov/upload
-      - run:
-          name: Build and generate Javadoc
-          command: mvn -B javadoc::javadoc
-      - run:
-          name: Run Checkstyle
-          command: mvn checkstyle:check
-workflows:
-  version: 2
-  build-and-test-master:
-    jobs:
-      - build-and-test-master:
-          filters:
-            branches:
-              only:
-                - master
-              ignore:
-                - gh-pages
+      - name: Checkout code
+        uses: actions/checkout@v4.1.6
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'corretto'
+
+      - name: Generate JavaDocs
+        run: mvn -B javadoc:javadoc
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.DOC_TOKEN }}
+          publish_dir: ./target/reports/apidocs
