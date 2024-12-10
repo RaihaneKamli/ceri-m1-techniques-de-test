@@ -1,9 +1,7 @@
 name: Java Documentation Generation
-
 on:
-  pull_request:
-    branches: [ main ]
-    types: [ closed ]
+  push:
+    branches: [master]
 
 jobs:
   generate-docs:
