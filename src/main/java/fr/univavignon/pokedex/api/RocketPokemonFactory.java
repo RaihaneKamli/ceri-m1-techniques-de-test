@@ -29,6 +29,10 @@ public class RocketPokemonFactory implements IPokemonFactory {
 		return total / 10000;
 	}
 
+	public static int randomStat() {
+		return generateRandomStat();
+	}
+
 	@Override
 	public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
 		String name;

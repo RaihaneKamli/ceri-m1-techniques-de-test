@@ -1,0 +1,19 @@
+Revue de code RocketPokemonFactory :
+
+
+Il n'y a pas tous les pokemons (voir //TODO : Gotta map them all !)
+
+generateRandomStat() devrait être publique pour avoir accès facilement à son utilisation,
+ou alors il faudrait créer une fonction publique qui utilise generateRandomStat() si on veut vraiment sécuriser la fonction
+
+
+La performance est problématique, la fonction generateRandomStat() effectue 1 million d’itérations ce qui est inutile.
+
+Les index négatifs ne sont pas correctement pris en charge, on retournera toujours "MISSINGNO" dans ce cas de figure
+
+Dans create pokemon, si l'index est négatif on donne des valeurs extrème qui ne respect pas les normes de statistiques
+des pokemons même si l'index positif generateRandomStat() donne une stat aléatoire qui peut varier entre 0 et 1 million
+ce qui posera problème dans les statistiques des pokemons. même en divisant par 10 000, il y a beaucoup de cas où les
+stats ne seront pas cohérente.
+
+
