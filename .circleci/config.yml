@@ -12,7 +12,12 @@ jobs:
       - checkout
       - run:
           name: Build
-          command: mvn -B -DskipTests clean package
+          command: |
+            if [[ "$CIRCLE_BRANCH" == "gh-pages" ]]; then
+              echo "Skipping build on gh-pages branch.";
+              exit 0;
+            fi
+            mvn -B -DskipTests clean package
       - run:
           name: Test
           command: mvn test
@@ -31,5 +36,7 @@ workflows:
       - build-and-test-master:
           filters:
             branches:
+              only:
+                - master
               ignore:
                 - gh-pages
